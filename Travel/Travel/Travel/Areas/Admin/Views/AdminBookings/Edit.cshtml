@@ -1,0 +1,65 @@
+﻿@model Travel.Models.Booking
+
+@{
+    ViewData["Title"] = "Chỉnh sửa";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-action="Index" asp-controller="Home" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ quản trị</a>
+            <a asp-action="Index" asp-controller="AdminBookings" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-book"></i>Đặt tour</a>
+            <span class="breadcrumb-item active"><i class="anticon anticon-edit"></i> @ViewData["Title"]</span>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BookingId" />
+            <div class="form-group">
+                <label asp-for="TourId" class="control-label">TourID</label>
+                <select asp-for="TourId" class="form-control" asp-items="ViewBag.TourId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerId" class="control-label">Khách hàng</label>
+                <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label">Ngày đặt</label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+
+            <div class="form-group d-flex align-items-center">
+                <div class="switch m-r-10">
+                    <input type="checkbox" id="switch-1" asp-for="Pay">
+                    <label for="switch-1"></label>
+                </div>
+                <label>Thanh toán</label>
+            </div>
+
+            <div class="form-row">
+                <div class="btn-group">
+                    <button class="btn btn-success btn-tone m-r-5">
+                        <i class="anticon anticon-save"></i>
+                        <span>Lưu</span>
+                    </button>
+
+                    <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminBookings" asp-action="Index">
+                        <i class="anticon anticon-backward"></i> Trở lại
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

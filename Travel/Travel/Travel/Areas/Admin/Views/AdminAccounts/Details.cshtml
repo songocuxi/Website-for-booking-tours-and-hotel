@@ -1,0 +1,81 @@
+﻿@model Travel.Models.Account
+
+@{
+    ViewData["Title"] = "Mô tả chi tiết";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+
+
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-action="Index" asp-controller="Home" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ quản trị</a>
+            <a asp-action="Index" asp-controller="AdminAccounts" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-environment"></i> Quản lí người dùng</a>
+            <span class="breadcrumb-item active"><i class="anticon anticon-environment"></i> @ViewData["Title"]</span>
+        </nav>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <div class="d-md-flex align-items-center">
+                        <div class="text-center text-sm-left ">
+                            <div class="avatar avatar-image" style="width: 150px; height:150px">
+                                <img src="assets/images/avatars/thumb-3.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="text-center text-sm-left m-v-15 p-l-30">
+                            <h2 class="m-b-5">UserName:  @Html.DisplayFor(model => model.Username)</h2>
+                            <p class="text-opacity font-size-13">Passwords   @Html.DisplayFor(model => model.Password)</p>
+                            <p class="text-dark m-b-20">Họ tên đầy đủ:   @Html.DisplayFor(model => model.Fullname)</p>
+                            <button class="btn btn-primary btn-tone"><a asp-action="Edit" asp-route-id="@Model.AccountId">Chỉnh Sửa</a></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="d-md-block d-none border-left col-1"></div>
+                        <div class="col">
+                            <ul class="list-unstyled m-t-10">
+                                <li class="row">
+                                    <p class="col-sm-5 col-4 font-weight-semibold text-dark m-b-5">
+                                        <i class="anticon anticon-phone"></i>
+                                        <span>Liên hệ:</span>
+                                    </p>
+                                    <p class="col font-weight-semibold">@Html.DisplayFor(model => model.Phone)</p>
+                                </li>
+                                <li class="row">
+                                    <p class="col-sm-5 col-5 font-weight-semibold text-dark m-b-5">
+                                        <i class="anticon anticon-select"></i>
+                                        <span>Quyền truy cập:</span>
+                                    </p>
+                                    <p class="col font-weight-semibold">@Html.DisplayFor(model => model.Role.Description)</p>
+                                </li>
+                                <li class="row">
+                                    <p class="col-sm-5 col-5 font-weight-semibold text-dark m-b-5">
+                                        <i class="anticon anticon-eye"></i>
+                                        <span>(mã hóa)</span>
+                                    </p>
+                                    <p class="col font-weight-semibold">@Html.DisplayFor(model => model.Salt)</p>
+                                </li>
+                            </ul>
+                            <div class="d-flex font-size-22 m-t-15">
+                                <button class="btn btn-primary btn-tone"><a asp-action="Index">Trở về</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

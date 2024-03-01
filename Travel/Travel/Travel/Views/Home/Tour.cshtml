@@ -1,0 +1,303 @@
+﻿@{
+	ViewData["Title"] = "Gói tour hiện có";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Carousel Start -->
+<div class="container-fluid p-0">
+    <div id="header-carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="w-100" src="~/assets/img/carousel-1.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h4 class="text-white text-uppercase mb-md-3">Trải Nghiệm Tại Đây</h4>
+                        <h1 class="display-3 text-white mb-md-4">"Hãy Cho Chúng Tôi Biết Nơi Bạn Muốn Đến</h1>
+                        <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Đặt Ngay</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+            <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                <span class="carousel-control-prev-icon mb-n2"></span>
+            </div>
+        </a>
+        <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+            <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                <span class="carousel-control-next-icon mb-n2"></span>
+            </div>
+        </a>
+    </div>
+</div>
+<!-- Carousel End -->
+<div class="container-fluid booking mt-5 pb-5">
+    <div class="container pb-5">
+        <div class="bg-light shadow" style="padding: 30px;">
+            <div class="row align-items-center" style="min-height: 60px;">
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="mb-3 mb-md-0">
+                                <select class="custom-select px-4" style="height: 47px;">
+                                    <option selected>Điểm đến</option>
+                                    <option value="1">Điểm đến 1</option>
+                                    <option value="2">Điểm đến 1</option>
+                                    <option value="3">Điểm đến 1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3 mb-md-0">
+                                <div class="date" id="date1" data-target-input="nearest">
+                                    <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Depart Date" data-target="#date1" data-toggle="datetimepicker" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3 mb-md-0">
+                                <div class="date" id="date2" data-target-input="nearest">
+                                    <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Return Date" data-target="#date2" data-toggle="datetimepicker" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3 mb-md-0">
+                                <input type="date" class="form-control p-4 datetimepicker-input" placeholder="Return Date" data-target="#date3" data-toggle="datetimepicker" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary btn-block" type="submit" style="height: 47px; margin-top: -2px;">Gửi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid py-5">
+    <div class="container pt-5 pb-3">
+        <div class="text-center mb-3 pb-3">
+            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Các Gói</h6>
+            <h1>Các Gói Tour Hiện Có</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="package-item bg-white mb-2">
+                    <img class="img-fluid" src="~/assets/img/biennhantao.jpg" alt="">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Cần Thơ</small>
+                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3N2D</small>
+                        </div>
+                        <a class="h5 text-decoration-none" href="">Bãi biển nhân tạo Cần Thơ - Điểm tắm mát, thư giãn lý tưởng</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                <h5 class="m-0">500.000VNĐ/Người</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="package-item bg-white mb-2">
+                    <img class="img-fluid" src="~/assets/img/baogiatrangvien.jpg" alt="">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Cần Thơ</small>
+                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>2N1D</small>
+                        </div>
+                        <a class="h5 text-decoration-none" href="">Bảo Gia Trang Viên - Điểm du lịch sinh thái NỔI TIẾNG Cần Thơ</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                <h5 class="m-0">700.000VNĐ/Người</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="package-item bg-white mb-2">
+                    <img class="img-fluid" src="~/assets/img/baotangquankhu9.jpg" alt="">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Cần Thơ</small>
+                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>1/2D</small>
+                        </div>
+                        <a class="h5 text-decoration-none" href="">Khám phá lịch sử hào hùng tại Bảo tàng quân khu 9 Cần Thơ</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                <h5 class="m-0">200.000Đ/Người</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="package-item bg-white mb-2">
+                    <img class="img-fluid" src="~/assets/img/chonoicairang.jpg" alt="">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Cần Thơ</small>
+                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>1/2D</small>
+                        </div>
+                        <a class="h5 text-decoration-none" href="">Cùng đến với chợ nổi Cái Răng để hòa mình vào ẩm thực miền Tây sông nước</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                <h5 class="m-0">290.000VNĐ/Người</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="package-item bg-white mb-2">
+                    <img class="img-fluid" src="~/assets/img/phiyen.jpg" alt="">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Cần Thơ</small>
+                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>2N1D</small>
+                        </div>
+                        <a class="h5 text-decoration-none" href="">Khu du lịch sinh thái vườn trái cây Phi Yến - Cần Thơ</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                <h5 class="m-0">400.000VNĐ/Người</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="package-item bg-white mb-2">
+                    <img class="img-fluid" src="~/assets/img/langhoababo.jpg" alt="">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Cần Thơ</small>
+                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>1N1D</small>
+                        </div>
+                        <a class="h5 text-decoration-none" href="">Làng hoa Bà Bộ - Địa điểm check-in tuyệt đẹp tại Cần Thơ</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                <h5 class="m-0">360.000VNĐ/Người</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="package-item bg-white mb-2">
+                    <img class="img-fluid" src="~/assets/img/ongde.jpg" alt="">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Cần Thơ</small>
+                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>2N1D</small>
+                        </div>
+                        <a class="h5 text-decoration-none" href="">Đến khu du lịch sinh thái Ông Đề, không phí một giây phút nào</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                <h5 class="m-0">470.000VNĐ/Người</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="package-item bg-white mb-2">
+                    <img class="img-fluid" src="~/assets/img/thienvientruclamphuongnam.jpg" alt="">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Cần Thơ</small>
+                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>1D</small>
+                        </div>
+                        <a class="h5 text-decoration-none" href="">Thiền viện Trúc Lâm Phương Nam – Địa điểm văn hóa tinh thần lớn nhất Tây Nam Bộ</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                <h5 class="m-0">200.000VNĐ/Người</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="package-item bg-white mb-2">
+                    <img class="img-fluid" src="~/assets/img/vuoncobanglang.jpg" alt="">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Cần Thơ</small>
+                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>2N1D</small>
+                        </div>
+                        <a class="h5 text-decoration-none" href="">Vườn cò Bằng Lăng – Trở về với thiên nhiên miền Tây</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                <h5 class="m-0">600.000VNĐ/Người</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="package-item bg-white mb-2">
+                    <img class="img-fluid" src="~/assets/img/conson.jpg" alt="">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Cần Thơ</small>
+                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>2N1D</small>
+                        </div>
+                        <a class="h5 text-decoration-none" href="">Cồn Sơn – Làng du lịch cộng đồng độc đáo ở Cần Thơ</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                <h5 class="m-0">430.000VNĐ/Người</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="package-item bg-white mb-2">
+                    <img class="img-fluid" src="~/assets/img/mykhanh.jpg" alt="">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Cần Thơ</small>
+                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>2N1D</small>
+                        </div>
+                        <a class="h5 text-decoration-none" href="">Khu du lịch Mỹ Khánh – Du lịch sinh thái miệt vườn Cần Thơ</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                <h5 class="m-0">600.000VNĐ/Người</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="package-item bg-white mb-2">
+                    <img class="img-fluid" src="~/assets/img/nhacobinhthuy.jpg" alt="">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Cần Thơ</small>
+                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>1D</small>
+                        </div>
+                        <a class="h5 text-decoration-none" href="">Nhà cổ Bình Thủy Cần Thơ - Nhà cổ đẹp nhất xứ Tây Đô</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                <h5 class="m-0">350.000VNĐ/Người</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

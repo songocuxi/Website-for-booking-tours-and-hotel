@@ -1,0 +1,5 @@
+﻿Packet:
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools
+
+Scaffold-DbContext "Data Source=LAPTOP-4GCS7EQ4\SQLEXPRESS;Initial Catalog=dbTravelAndHotel;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -outputDir Models\ -force

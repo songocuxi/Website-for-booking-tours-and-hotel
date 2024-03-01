@@ -1,0 +1,150 @@
+﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<Travel.Models.ImgHotel>
+
+@{
+    ViewData["Title"] = "Hình ảnh";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int PageCurrent = ViewBag.CurrentPage;
+    int PageLength = ViewBag.PageLength;
+    int PageBack = PageCurrent - 1;
+    int PageNext = PageCurrent + 1;
+    int PageNextPlus = PageNext + 1;
+    int PageNextMinus = PageBack - 1;
+} 
+
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-action="Index" asp-controller="Home" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ quản trị</a>
+            <a asp-action="Index" asp-controller="AdminHotels" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-home"></i> Quản lý khách sạn</a>
+            <a asp-route-id="@ViewBag.Hotelid" asp-action="Details" asp-controller="AdminHotels" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-home"></i> @ViewBag.NameHotel</a>
+            <span class="breadcrumb-item active"><i class="anticon anticon-picture"></i></i> @ViewData["Title"] (@PageCurrent/@PageLength trang)</span>
+        </nav>
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-body">
+
+        <div class="m-t-25">
+            <div class="table-responsive">
+                <a class="btn btn-success" asp-area="Admin" asp-controller="AdminImgHotels" asp-action="Create" asp-route-id="@ViewBag.Hotelid">
+                    <i class="anticon anticon-plus-circle m-r-5"></i> <span>Thêm mới</span>
+                </a>
+                <table class="table">
+                    <thead class="text-center">
+                        <tr>
+                            <th scope="col">Hình ảnh</th>
+                            <th scope="col">#</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <th scope="row">
+                                    <img width="250px" src="~/images/ImgHotels/@item.Description" alt="@item.ImgHotelId" />
+                                    </th>
+                                <td>
+
+                                    <a class="btn btn-danger btn-tone m-r-5" data-toggle="modal" data-target="#Modal_@item.ImgHotelId">
+                                        <i class="anticon anticon-delete"></i>Xóa
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="Modal_@item.ImgHotelId">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="ModalLabel">Bạn có chắc chắn muốn xóa</h5>
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                <i class="anticon anticon-close"></i>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ID: @item.ImgHotelId
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form asp-action="Delete" asp-controller="AdminImgHotels" asp-area="Admin" asp-route-id="@item.ImgHotelId">
+                                                <input type="hidden" />
+
+                                                <button type="submit" value="Delete" class="btn btn-danger btn-tone m-r-5">
+                                                    <i class="anticon anticon-delete"></i>
+                                                    <span>Xóa</span>
+                                                </button>
+
+                                                <a class="btn btn-primary btn-tone m-r-5" data-dismiss="modal">
+                                                    <i class="anticon anticon-backward"></i> Trở lại
+                                                </a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </tbody>
+                </table>
+
+                <!-- Pagination -->
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        @if (PageCurrent > 1)
+                        {
+                            <li class="page-item">
+                                <a class="page-link" href="?id=@ViewBag.Hotelid&Page=1" aria-label="Previous">
+                                    <span class="fa fa-chevron-left"></span>
+                                </a>
+                            </li>
+                            if (PageNextMinus >= 1)
+                            {
+                                <li class="page-item"><a class="page-link" href="?id=@ViewBag.Hotelid&Page=@PageNextMinus">@PageNextMinus</a></li>
+                            }
+                            <li class="page-item"><a class="page-link" href="?id=@ViewBag.Hotelid&Page=@PageBack">@PageBack</a></li>
+                        }
+                        else
+                        {
+                            <li class="page-item disabled">
+                                <a class="page-link" href="?id=@ViewBag.Hotelid&Page=1" aria-label="Previous">
+                                    <span class="fa fa-chevron-left"></span>
+                                </a>
+                            </li>
+                        }
+
+                        <li class="page-item active"><a class="page-link" href="?id=@ViewBag.Hotelid&Page=@PageCurrent">@PageCurrent</a></li>
+
+                        @if (PageCurrent < PageLength)
+                        {
+                            <li class="page-item"><a class="page-link" href="?id=@ViewBag.Hotelid&Page=@PageNext">@PageNext</a></li>
+
+                            if (PageNextPlus <= PageLength)
+                            {
+                                <li class="page-item"><a class="page-link" href="?id=@ViewBag.Hotelid&Page=@PageNextPlus">@PageNextPlus</a></li>
+                            }
+                            <li class="page-item">
+                                <a class="page-link" href="?id=@ViewBag.Hotelid&Page=@PageLength" aria-label="Next">
+                                    <span class="fa fa-chevron-right"></span>
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item disabled">
+                                <a class="page-link" href="?id=@ViewBag.Hotelid&Page=1" aria-label="Next">
+                                    <span class="fa fa-chevron-right"></span>
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+                </nav>
+                <!-- End Pagination -->
+
+            </div>
+        </div>
+    </div>
+</div>

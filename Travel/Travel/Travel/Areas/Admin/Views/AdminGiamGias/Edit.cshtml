@@ -1,0 +1,66 @@
+﻿@model Travel.Models.GiamGia
+
+@{
+    ViewData["Title"] = "Chỉnh sửa";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-action="Index" asp-controller="Home" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ quản trị</a>
+            <a asp-action="Index" asp-controller="AdminGiamgias" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-bars"></i> Mã khuyến mãi</a>
+            <span class="breadcrumb-item active"><i class="anticon anticon-plus-circle"></i> @ViewData["Title"]</span>
+        </nav>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Kmid" />
+            <div class="form-group">
+                <label asp-for="Kmid" class="control-label"> Mã Giảm Giá</label>
+                <input asp-for="Kmid" class="form-control" />
+                <span asp-validation-for="Kmid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaGiamGia" class="control-label"> Mã Giảm Giá</label>
+                <input asp-for="MaGiamGia" class="form-control" />
+                <span asp-validation-for="MaGiamGia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ngay" class="control-label">Ngày</label>
+                <input asp-for="Ngay" class="form-control" />
+                <span asp-validation-for="Ngay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Thang" class="control-label">Tháng</label>
+                <input asp-for="Thang" class="form-control" />
+                <span asp-validation-for="Thang" class="text-danger"></span>
+            </div>
+        </form>
+        <div class="form-row">
+            <div class="btn-group">
+                <button class="btn btn-success btn-tone m-r-5">
+                    <i class="anticon anticon-save"></i>
+                    <span>Lưu</span>
+                </button>
+
+                <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminGiamgias" asp-action="Index">
+                    <i class="anticon anticon-backward"></i> Trở lại
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,99 @@
+﻿@model Travel.Areas.Admin.Models.HotelViewModel;
+
+@{
+    ViewData["Title"] = "Mô tả chi tiết";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-action="Index" asp-controller="Home" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ quản trị</a>
+            <a asp-action="Index" asp-controller="AdminHotels" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-home"></i> Quản lý khách sạn</a>
+            <span class="breadcrumb-item active"><i class="anticon anticon-plus-circle"></i> @ViewData["Title"]</span>
+        </nav>
+    </div>
+</div>
+
+
+<form>
+    <div class="page-header no-gutters has-tab">
+        <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+            <div class="media align-items-center m-b-15">
+                <div class="m-l-15">
+                    <h4>Khách Sạn </h4>
+                    @Html.DisplayFor(model => model.lsHotel.Name)
+                </div>
+            </div>
+            <div class="m-b-15">
+                <button class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.lsHotel.HotelId">
+                    <i class="anticon anticon-save"></i>
+                    <span>Chỉnh sửa</span>
+                </button>
+            </div>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#product-edit-basic">Thông tin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#imghotel">Hình ảnh</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#infoHotel&Tour">Thông tin khách hàng và tour của họ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#Room">Phòng</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content m-t-15">
+        <div class="tab-pane fade show active" id="product-edit-basic">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="font-weight-semibold">ID Khách Sạn</label><br />
+                        <p>@Html.DisplayFor(model => model.lsHotel.HotelId)</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-semibold">Tên Khách Sạn</label><br />
+                        <p>@Html.DisplayFor(model => model.lsHotel.Name)</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-semibold">Địa Chỉ</label><br />
+                        <p>Ninh Kiều</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-semibold">Số điện thoại</label><br />
+                        <p>@Html.DisplayFor(model => model.lsHotel.Phone)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade show" id="imghotel">
+            <a href="/admin/AdminImgHotels?id=@Model.lsHotel.HotelId">
+                <span class="icon-holder">
+                    <i class="anticon anticon-picture"></i>
+                </span>
+                <span class="title">Quản lý hình ảnh khách sạn</span>
+            </a>
+            <div class="row">
+            @foreach (var item in Model.lsImgHotel)
+            {
+                
+                    <div class="col-lg-3">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <img width="250px" src="~/images/ImgHotels/@item.Description" alt="@item.ImgHotelId" />
+                            </div>
+                        </div>
+                    </div>
+           
+            }
+            </div>
+        </div>
+    </div>
+</form>
+
+

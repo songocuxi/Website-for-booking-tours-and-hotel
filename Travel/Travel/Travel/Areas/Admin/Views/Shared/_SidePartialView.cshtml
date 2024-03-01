@@ -1,0 +1,172 @@
+﻿
+<div class="side-nav">
+    <div class="side-nav-inner">
+        <ul class="side-nav-menu scrollable">
+            @*            <li class="nav-item dropdown">
+            <a class="dropdown-toggle" href="javascript:void(0);">
+            <span class="icon-holder">
+            <i class="anticon anticon-dashboard"></i>
+            </span>
+            <span class="title">Dashboard</span>
+            <span class="arrow">
+            <i class="arrow-icon"></i>
+            </span>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+            <a href="index.html">Default</a>
+            </li>
+            <li>
+            <a href="index-crm.html">CRM</a>
+            </li>
+            <li>
+            <a href="index-e-commerce.html">E-commerce</a>
+            </li>
+            <li>
+            <a href="index-projects.html">Projects</a>
+            </li>
+            </ul>
+            </li>*@
+            @if (User.IsInRole("Admin"))
+            {
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle" asp-action="Index" asp-controller="AdminPlaces" asp-area="admin">
+                        <span class="icon-holder">
+                            <i class="anticon anticon-environment"></i>
+                        </span>
+                        <span class="title">Địa điểm</span>
+                    </a>
+                </li>
+            }
+            @if (User.IsInRole("Manager"))
+            {
+
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle" asp-action="Details" asp-controller="AdminHotels" asp-area="admin">
+                        <span class="icon-holder">
+                            <i class="anticon anticon-home"></i>
+                        </span>
+                        <span class="title">Khách sạn của tôi</span>
+                    </a>
+                </li>
+            }
+            @if (User.IsInRole("Admin"))
+            {
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle" asp-action="Index" asp-controller="AdminHotels" asp-area="admin">
+                        <span class="icon-holder">
+                            <i class="anticon anticon-home"></i>
+                        </span>
+                        <span class="title">Khách sạn</span>
+                    </a>
+                </li>
+            }
+
+            @*<li class="nav-item dropdown">
+            <a class="dropdown-toggle" asp-action="Index" asp-controller="AdminImgHotels" asp-area="admin">
+            <span class="icon-holder">
+            <i class="anticon anticon-picture"></i>
+            </span>
+            <span class="title">Hình ảnh khách sạn</span>
+            </a>
+            </li>*@
+
+            @* <li class="nav-item dropdown">
+            <a class="dropdown-toggle" asp-action="Index" asp-controller="AdminTypeRooms" asp-area="admin">
+            <span class="icon-holder">
+            <i class="anticon anticon-home"></i>
+            </span>
+            <span class="title">Loại phòng khách sạn</span>
+            </a>
+            </li>*@
+
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" asp-action="Index" asp-controller="AdminTours" asp-area="admin">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-dollar"></i>
+                    </span>
+                    <span class="title">Tour</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" asp-action="Index" asp-controller="AdminGiamgias" asp-area="admin">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-fire"></i>
+                    </span>
+                    <span class="title">Mã giảm giá</span>
+                </a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" asp-action="Index" asp-controller="AdminLocation1" asp-area="admin">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-environment"></i>
+                    </span>
+                    <span class="title">Địa chỉ</span>
+                </a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" asp-action="Index" asp-controller="AdminBookings" asp-area="admin">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-book"></i>
+                    </span>
+                    <span class="title">Đặt tuor</span>
+                </a>
+            </li>
+
+            @* <li class="nav-item dropdown">
+            <a class="dropdown-toggle" asp-action="Index" asp-controller="AdminImgTours" asp-area="admin">
+            <span class="icon-holder">
+            <i class="anticon anticon-picture"></i>
+            </span>
+            <span class="title">Hình ảnh Tour</span>
+            </a>
+            </li>*@
+
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" asp-action="Index" asp-controller="AdminHotelBookings" asp-area="admin">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-coffee"></i>
+                    </span>
+                    <span class="title">Đặt khách sạn</span>
+                </a>
+            </li>
+
+            @if (User.IsInRole("Admin"))
+            {
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle" href="javascript:void(0);">
+                        <span class="icon-holder">
+                            <i class="anticon anticon-safety-certificate"></i>
+                        </span>
+                        <span class="title">Bảo mật</span>
+                        <span class="arrow">
+                            <i class="arrow-icon"></i>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" asp-action="Index" asp-controller="AdminAccounts" asp-area="admin">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-user"></i>
+                                </span>
+                                <span class="title">Người dùng</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" asp-action="Index" asp-controller="AdminRoles" asp-area="admin">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-bars"></i>
+                                </span>
+                                <span class="title">Quyền truy cập</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            }
+
+        </ul>
+    </div>
+</div>

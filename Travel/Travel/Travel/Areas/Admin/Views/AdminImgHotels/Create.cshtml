@@ -1,0 +1,52 @@
+﻿@model Travel.Models.ImgHotel
+
+@{
+    ViewData["Title"] = "Thêm mới";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-action="Index" asp-controller="Home" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ quản trị</a>
+            <a asp-action="Index" asp-controller="AdminHotels" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-home"></i> Quản lý khách sạn</a>
+            <a asp-route-id="@ViewBag.Hotelid" asp-action="Details" asp-controller="AdminHotels" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-home"></i> @ViewBag.NameHotel</a>
+            <a href="/admin/AdminImgHotels?id=@ViewBag.Hotelid" class="breadcrumb-item"><i class="anticon anticon-picture"></i> Hình ảnh Khách sạn</a>
+            <span class="breadcrumb-item active"><i class="anticon anticon-plus-circle"></i> @ViewData["Title"]</span>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label>Hình ảnh</label>
+                <input name="fThumb" type="file" class="form-control-file" />
+            </div>
+
+            <div class="form-row">
+                <div class="btn-group">
+                    <button class="btn btn-success btn-tone m-r-5">
+                        <i class="anticon anticon-save"></i>
+                        <span>Lưu</span>
+                    </button>
+
+                    <a class="btn btn-primary btn-tone m-r-5" href="/admin/AdminImgHotels?id=@ViewBag.Hotelid">
+                        <i class="anticon anticon-backward"></i> Trở lại
+                    </a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

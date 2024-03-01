@@ -1,0 +1,92 @@
+﻿@model Travel.Models.Tour
+
+@{
+    ViewData["Title"] = "Mô tả chi tiết ";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-action="Index" asp-controller="Home" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ quản trị</a>
+            <a asp-action="Index" asp-controller="AdminTours" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-home"></i>Tour</a>
+            <span class="breadcrumb-item active"><i class="anticon anticon-plus-circle"></i> @ViewData["Title"]</span>
+        </nav>
+    </div>
+</div>
+<form>
+    <div class="page-header no-gutters has-tab">
+        <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+            <div class="media align-items-center m-b-15">
+                <div class="avatar avatar-image rounded" style="height: 70px; width: 70px">
+                    <img src="" alt="">
+                </div>
+                <div class="m-l-15">
+                    <h4>Tour du lịch - ID: @Html.DisplayFor(model => model.TourId)</h4>
+                    @Html.DisplayFor(model => model.Place.Name)
+                </div>
+            </div>
+            <div class="m-b-15">
+                <button class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.TourId">
+                    <i class="anticon anticon-save"></i>
+                    <span>Chỉnh sửa</span>
+                </button>
+            </div>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#product-edit-basic">Thông tin chuyến Tour</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#imgtour">Hình ảnh</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#infoTour">Thông tin khách hàng đặt tour này</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content m-t-15">
+        <div class="tab-pane fade show active" id="product-edit-basic">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="font-weight-semibold">Số lượng đã dặt:</label><br />
+                        <p>@ViewBag.Sluong</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-semibold">Nơi Đến</label><br />
+                        <p>@Html.DisplayFor(model => model.Place.Name)</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-semibold">Địa điểm</label><br />
+                        <p>@Html.DisplayFor(model => model.Place.Address) </p>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-semibold">Chi phí</label><br />
+                        <p>@Html.DisplayFor(model => model.Cost)</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-semibold">Thời gian bắt đầu</label><br />
+                        <p>@Html.DisplayFor(model => model.StartTime)</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-semibold">Thời gian kết thúc</label><br />
+                        <p>@Html.DisplayFor(model => model.EndTime)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade show" id="imgtour">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="font-weight-semibold">Hình ảnh khách sạn</label><br />
+                        <p>    <a href="/admin/AdminImgtOURS/">Xem hình ảnh</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+

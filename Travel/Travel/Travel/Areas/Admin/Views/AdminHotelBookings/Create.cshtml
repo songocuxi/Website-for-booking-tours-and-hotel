@@ -1,0 +1,52 @@
+﻿@model Travel.Models.HotelBooking
+
+@{
+    ViewData["Title"] = "Thêm mới";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-action="Index" asp-controller="Home" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ quản trị</a>
+            <a asp-action="Index" asp-controller="AdminHotelBookings" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-coffee"></i> Quản lý đặt khách sạn</a>
+            <span class="breadcrumb-item active"><i class="anticon anticon-plus-circle"></i> @ViewData["Title"]</span>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="HotelId" class="control-label">HotelID</label>
+                <select asp-for="HotelId" class="form-control" asp-items="ViewBag.HotelId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TourId" class="control-label">TourID</label>
+                <select asp-for="TourId" class="form-control" asp-items="ViewBag.TourId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label">Ngày đặt</label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="btn-group">
+                    <button class="btn btn-success btn-tone m-r-5">
+                        <i class="anticon anticon-save"></i>
+                        <span>Lưu</span>
+                    </button>
+
+                    <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminHotelBookings" asp-action="Index">
+                        <i class="anticon anticon-backward"></i> Trở lại
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

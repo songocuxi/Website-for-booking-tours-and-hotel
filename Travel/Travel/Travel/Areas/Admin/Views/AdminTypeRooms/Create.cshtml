@@ -1,0 +1,60 @@
+﻿@model Travel.Models.TypeRoom
+
+@{
+    ViewData["Title"] = "Thêm mới";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-action="Index" asp-controller="Home" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ quản trị</a>
+            <a asp-action="Index" asp-controller="AdminTypeRooms" asp-area="admin" class="breadcrumb-item"><i class="anticon anticon-home"></i> Loại phòng khách sạn</a>
+            <span class="breadcrumb-item active"><i class="anticon anticon-plus-circle"></i> @ViewData["Title"]</span>
+        </nav>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TypeId" class="control-label">Loại Phòng</label>
+                <select asp-for="TypeId" class="form-control" asp-items="ViewBag.TypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HotelId" class="control-label">Tên Khách sạn</label>
+                <select asp-for="HotelId" class ="form-control" asp-items="ViewBag.HotelId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Mô Tả</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label">Số Lượng</label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+        </form>
+        <div class="form-row">
+            <div class="btn-group">
+                <button class="btn btn-success btn-tone m-r-5">
+                    <i class="anticon anticon-save"></i>
+                    <span>Lưu</span>
+                </button>
+
+                <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminTypeRooms" asp-action="Index">
+                    <i class="anticon anticon-backward"></i> Trở lại
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
